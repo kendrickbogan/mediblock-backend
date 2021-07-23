@@ -1,0 +1,107 @@
+$brand-gray: #222;
+$brand-light-gray: #f4f4f4;
+$brand-red: #d34135;
+
+.sharing-event {
+  background-color: white;
+  color: $brand-gray;
+  font-family: "Rubik", sans-serif;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.sharing-event__banner {
+  align-items: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem 1rem;
+}
+
+.sharing-event__logo {
+  margin: 0 auto;
+  max-width: 15rem;
+
+  @media (min-width: 60rem) {
+    max-width: 17rem;
+  }
+}
+
+.sharing-event__notice {
+  display: flex;
+  height: 2rem;
+  width: 100%;
+  background-color: skyblue;
+  align-items: center;
+  justify-content: center;
+}
+
+.sharing-event__container {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto 3rem;
+  padding: 0.5rem;
+
+  @media (min-width: 60rem) {
+    flex-direction: row;
+    max-width: 60rem;
+  }
+}
+
+.sharing-event__form-container {
+  align-items: stretch;
+  background-color: $brand-light-gray;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  text-align: center;
+
+  input {
+    background-color: white;
+    border-radius: 0.5rem;
+    border: 0;
+    font-size: 1rem;
+    margin: 0 0 0.5rem;
+    padding: 0.75rem;
+
+    &.button {
+      border-radius: 20rem;
+      padding: 1.5rem 2rem;
+      width: 100%;
+      border: none;
+    }
+
+    &.button--primary {
+      background-color: $brand-red;
+      color: white;
+    }
+
+    &.button--secondary {
+      background-color: transparent;
+      border: 1px solid $brand-gray;
+      color: $brand-gray;
+    }
+
+    @media (min-width: 60rem) {
+      min-width: 20rem;
+      padding: 3rem;
+      text-align: center;
+      width: 50%;
+    }
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+}
+
+.sharing-event__input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}

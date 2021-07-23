@@ -1,0 +1,32 @@
+<% if flash[:notice] %>
+  <div class="sharing-event__notice"><%= flash[:notice] %></div>
+<% end %>
+<div class="sharing-event__banner">
+  <%= image_tag "mediblock_logo.svg", class: "sharing-event__logo" %>
+</div>
+<div class="sharing-event__container">
+  <div class="sharing-event__form-container">
+    <%= form_with url: sharing_event_download_path(@sharing_event.uuid), method: :get do |form| %>
+      <h2>Already have a download code?</h2>
+      <div class="sharing-event__input-container">
+        <%= form.label :code, "Enter your 6 digit code" %>
+        <%= form.text_field :code %>
+      </div>
+      <div class="sharing-event__input-container">
+        <%= form.label :code_email, "Enter your email" %>
+        <%= form.text_field :code_email %>
+      </div>
+      <%= form.submit "Download", class: "button button--primary" %>
+    <% end %>
+  </div>
+  <div class="sharing-event__form-container">
+    <h2>Don't have a code yet?</h2>
+    <%= form_with url: sharing_event_sharing_event_codes_path(@sharing_event.uuid) do |form| %>
+      <div class="sharing-event__input-container">
+        <%= form.label :email, "Enter your email" %>
+        <%= form.text_field :email %>
+      </div>
+      <%= form.submit "Submit", class: "button button--secondary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<p>Hello,</p>
+<p><%= @person.full_name %> has shared some documents with you via Mediblock.</p>
+
+<%= link_to "Click here to download the documents", sharing_event_url(@sharing_event.uuid)  %>

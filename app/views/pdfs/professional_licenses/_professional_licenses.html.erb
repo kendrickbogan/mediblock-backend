@@ -1,0 +1,40 @@
+<h3 class="pdf__section-title"><%= title %></h3>
+<% @person.professional_licenses.where(kind: kind).each do |license| %>
+    <% if kind != :medical %>
+        <%= render "pdfs/attribute_details",
+            label: "License type",
+            value: license.non_medical_license_kind.titleize %>
+    <% end %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Issuing state",
+        value: license.issuing_state %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Issuing authority",
+        value:  license.issuing_authority %>
+
+    <%= render "pdfs/attribute_details",
+        label: "License number",
+        value:  license.number %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Verification website",
+        value:  license.license_verification_url %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Date of issue",
+        value: format_date_month_day_year(license.date_of_issue) %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Expiration date",
+        value: format_date_month_day_year(license.expires_at) %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Status",
+        value: license.status %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Is this license unrestricted?",
+        value: yes_or_no_text(license.unrestricted_license?)%>
+<% end %>

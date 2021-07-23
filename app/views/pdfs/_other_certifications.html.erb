@@ -1,0 +1,32 @@
+<% if @share_event.categories_included.include?("other_certification") %>
+  <h2 class="pdf__category-title">Other Certifications</h2>
+  <%= render "pdfs/other_certifications/certifications_detail",
+    certifications: @person.certifications.ACLS,
+    title: "ACLS" %>
+  <%= render "pdfs/other_certifications/certifications_detail",
+    certifications: @person.certifications.ATLS,
+    title: "ATLS" %>
+  <%= render "pdfs/other_certifications/certifications_detail",
+    certifications: @person.certifications.BLS,
+    title: "BLS" %>
+  <%= render "pdfs/other_certifications/certifications_detail",
+    certifications: @person.certifications.CPR,
+    title: "CPR" %>
+  <%= render "pdfs/other_certifications/certifications_detail",
+    certifications: @person.certifications.CoreC,
+    title: "CoreC" %>
+  <%= render "pdfs/other_certifications/certifications_detail",
+    certifications: @person.certifications.NALS,
+    title: "NALS" %>
+  <%= render "pdfs/other_certifications/certifications_detail",
+    certifications: @person.certifications.NRP,
+    title: "NRP" %>
+  <%= render "pdfs/other_certifications/certifications_detail",
+    certifications: @person.certifications.PALS,
+    title: "PALS" %>
+  <%= render "pdfs/other_certifications/certifications_detail",
+    certifications: @person.certifications.other,
+    title: "Other" %>
+  <%= render "pdfs/other_certifications/cme_credit_hours",
+    credit_hours: @person.cme_credit_hours %>
+<% end %>

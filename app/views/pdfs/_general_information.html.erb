@@ -1,0 +1,10 @@
+<% if @share_event.categories_included.include?("general_information") %>
+  <h2 class="pdf__category-title">General Information</h2>
+  <%= render "pdfs/general_information/personal_details" %>
+  <%= render "pdfs/general_information/prior_names" if @person.prior_names.present? %>
+  <%= render "pdfs/general_information/drivers_license" if @person.drivers_license.present? %>
+  <%= render "pdfs/general_information/passport" if @person.passport.present? %>
+  <%= render "pdfs/general_information/spoken_languages" if @person.spoken_languages.present? %>
+  <%= render "pdfs/general_information/military_service_details" if @person.military_service_detail.present? %>
+<% end %>
+

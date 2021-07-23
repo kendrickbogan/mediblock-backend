@@ -1,0 +1,5 @@
+<% if @share_event.categories_included.include?("employment_history") %>
+  <h2 class="pdf__category-title">Academic Appointments</h2>
+  <%= render "pdfs/academic_appointments/academic_appointments" if @person.academic_appointments.present? %>
+  <%= render "pdfs/academic_appointments/leadership_positions" if @person.administrative_leadership_positions.present? %>
+<% end %>

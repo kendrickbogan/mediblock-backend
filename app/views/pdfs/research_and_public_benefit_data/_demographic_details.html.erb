@@ -1,0 +1,9 @@
+<h3 class="pdf__section-title">Demographic Information</h3>
+
+<%= render "pdfs/attribute_details",
+    label: "Race",
+    value: @person.demographic_detail.race.to_sentence %>
+
+<%= render "pdfs/attribute_details",
+    label: "Ethnicity",
+    value: @person.demographic_detail.ethnicity.titleize %>

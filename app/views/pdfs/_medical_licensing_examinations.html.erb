@@ -1,0 +1,5 @@
+<% if @share_event.categories_included.include?("medical_licensing_examination") %>
+  <h2 class="pdf__category-title">Medical Licensing</h2>
+  <%= render "pdfs/medical_licensing_examinations/usmle_scores" if @person.usmle_score.present? %>
+  <%= render "pdfs/medical_licensing_examinations/comlex_usa_scores" if @person.comlex_usa_score.present? %>
+<% end %>

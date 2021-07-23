@@ -1,0 +1,35 @@
+<h3 class="pdf__section-title">USMLE Scores</h3>
+
+<%= render "pdfs/attribute_details",
+  label: "USMLE ID Number",
+  value: @person.usmle_score.usmle_id_number %>
+
+<%= render "pdfs/attribute_details",
+  label: "Step 1 exam passed?",
+  value: yes_or_no_text(@person.usmle_score.step_1_exam_passed) %>
+<%= render "pdfs/attribute_details",
+  label: "Step 1 score",
+  value: @person.usmle_score.step_1_exam_score %>
+<%= render "pdfs/attribute_details",
+  label: "Step 1 exam date",
+  value: format_date_month_day_year(@person.usmle_score.step_1_exam_date) %>
+
+<%= render "pdfs/attribute_details",
+  label: "Step 2 exam passed?",
+  value: yes_or_no_text(@person.usmle_score.step_2_exam_passed) %>
+<%= render "pdfs/attribute_details",
+  label: "Step 2 score",
+  value: @person.usmle_score.step_2_exam_score %>
+<%= render "pdfs/attribute_details",
+  label: "Step 2 exam date",
+  value: format_date_month_day_year(@person.usmle_score.step_2_exam_date) %>
+
+<%= render "pdfs/attribute_details",
+  label: "Step 3 exam passed?",
+  value: yes_or_no_text(@person.usmle_score.step_3_exam_passed) %>
+<%= render "pdfs/attribute_details",
+  label: "Step 3 score",
+  value: @person.usmle_score.step_3_exam_score %>
+<%= render "pdfs/attribute_details",
+  label: "Step 3 exam date",
+  value: format_date_month_day_year(@person.usmle_score.step_3_exam_date) %>

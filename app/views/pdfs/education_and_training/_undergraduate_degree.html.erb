@@ -1,0 +1,34 @@
+<div class="pdf__section">
+  <h3 class="pdf__section-title">Undergraduate Degree</h3>
+  <%= render "pdfs/attribute_details",
+    label: "Institution name",
+    value: @person.undergraduate_degree.institution_name %>
+  <%= render "pdfs/attribute_details",
+    label: "Degree",
+    value: @person.undergraduate_degree.degree.titleize %>
+  <%= render "pdfs/attribute_details",
+    label: "Major",
+    value: @person.undergraduate_degree.major %>
+  <%= render "pdfs/attribute_details",
+    label: "Minor",
+    value: @person.undergraduate_degree.minor %>
+  <%= render "pdfs/attribute_details",
+    label: "Date of graduation",
+    value: format_date_month_day_year(@person.undergraduate_degree.date_of_graduation) %>
+  <%= render "pdfs/attribute_details",
+    label: "Attendance start date",
+    value: format_date_month_day_year(@person.undergraduate_degree.started_at) %>
+  <%= render "pdfs/attribute_details",
+    label: "Attendance end date",
+    value: format_date_month_day_year(@person.undergraduate_degree.ended_at) %>
+  <%= render "pdfs/attribute_details",
+    label: "Registrar phone number",
+    value: @person.undergraduate_degree.registrar_phone_number %>
+  <%= render "pdfs/attribute_details",
+    label: "Registrar website",
+    value: @person.undergraduate_degree.registrar_url %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Institution address",
+    value: @person.undergraduate_degree.institution_address %>
+</div>

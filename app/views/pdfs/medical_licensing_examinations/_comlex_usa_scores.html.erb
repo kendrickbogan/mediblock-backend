@@ -1,0 +1,45 @@
+<h3 class="pdf__section-title">USMLE Scores</h3>
+
+<%= render "pdfs/attribute_details",
+  label: "NBOME ID Number",
+  value: @person.comlex_usa_score.nbome_id_number %>
+
+<%= render "pdfs/attribute_details",
+  label: "Level 1 exam passed?",
+  value: yes_or_no_text(@person.comlex_usa_score.level_1_passed) %>
+<%= render "pdfs/attribute_details",
+  label: "Level 1 score",
+  value: @person.comlex_usa_score.level_1_score %>
+<%= render "pdfs/attribute_details",
+  label: "Level 1 exam date",
+  value: format_date_month_day_year(@person.comlex_usa_score.level_1_exam_date) %>
+
+<%= render "pdfs/attribute_details",
+  label: "Level 2 CE exam passed?",
+  value: yes_or_no_text(@person.comlex_usa_score.level_2_ce_passed) %>
+<%= render "pdfs/attribute_details",
+  label: "Level 2 CE score",
+  value: @person.comlex_usa_score.level_2_ce_score %>
+<%= render "pdfs/attribute_details",
+  label: "Level 2 CE exam date",
+  value: format_date_month_day_year(@person.comlex_usa_score.level_2_ce_exam_date) %>
+
+<%= render "pdfs/attribute_details",
+  label: "Level 2 PE exam passed?",
+  value: yes_or_no_text(@person.comlex_usa_score.level_2_pe_passed) %>
+<%= render "pdfs/attribute_details",
+  label: "Level 2 PE score",
+  value: @person.comlex_usa_score.level_2_pe_score %>
+<%= render "pdfs/attribute_details",
+  label: "Level 2 PE exam date",
+  value: format_date_month_day_year(@person.comlex_usa_score.level_2_pe_exam_date) %>
+
+<%= render "pdfs/attribute_details",
+  label: "Level 3 exam passed?",
+  value: yes_or_no_text(@person.comlex_usa_score.level_3_passed) %>
+<%= render "pdfs/attribute_details",
+  label: "Level 3 score",
+  value: @person.comlex_usa_score.level_3_score %>
+<%= render "pdfs/attribute_details",
+  label: "Level 3 exam date",
+  value: format_date_month_day_year(@person.comlex_usa_score.level_3_exam_date) %>

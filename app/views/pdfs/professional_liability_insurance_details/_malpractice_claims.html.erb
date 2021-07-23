@@ -1,0 +1,59 @@
+<h3 class="pdf__section-title">Malpractice Claims History</h3>
+
+<% @person.malpractice_claims.each do |claim| %>
+    <%= render "pdfs/attribute_details",
+        label: "Date of alleged incident",
+        value: format_date_month_day_year(claim.alleged_incident_date) %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Date the claim was filed",
+        value: format_date_month_day_year(claim.claim_filed_at) %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Claim/case status",
+        value:  claim.claim_status %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Professional Liability Issurance Carrier Involved",
+        value:  claim.insurance_carrier_involved %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Your Liability Policy Number which covered you during this period",
+        value:  claim.policy_number_covered_by %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Dollar Amount of Award or Settlement",
+        value: claim.settlement_amount %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Dollar amount paid",
+        value: claim.amount_paid %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Method of resolution",
+        value: claim.method_of_resolution %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Description of allegations",
+        value: claim.description_of_allegations %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Defendant type",
+        value: claim.defendant_type %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Number of co-defendants",
+        value: claim.number_of_co_defendants %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Description of your involvement",
+        value: claim.involvement_description %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Description of alleged injury to patient",
+        value: claim.description_of_alleged_injury %>
+
+    <%= render "pdfs/attribute_details",
+        label: "To the Best of your knowledge, is this case included in the National Practitioner Data Bank (NPDB)?",
+        value: yes_or_no_text(claim.included_in_npdb) %>
+<% end %>

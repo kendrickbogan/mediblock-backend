@@ -1,0 +1,45 @@
+    <div class="pdf__section">
+    <h3 class="pdf__section-title">Academic Appointments</h3>
+    <% @person.academic_appointments.each_with_index do |appointment, index| %>
+      <h3 class="pdf__section-title"> Academic Appointment #<%= index + 1 %></h3>
+      <%= render "pdfs/attribute_details",
+        label: "Position",
+        value: appointment.position %>
+
+      <%= render "pdfs/attribute_details",
+        label: "Institution name",
+        value: appointment.institution_name %>
+
+      <%= render "pdfs/attribute_details",
+        label: "Address",
+        value: appointment.full_address %>
+
+      <% if appointment.phone_number.present? %>
+        <%= render "pdfs/attribute_details",
+          label: "Institution phone number",
+          value: appointment.phone_number %>
+      <% end %>
+
+      <% if appointment.fax_number.present? %>
+        <%= render "pdfs/attribute_details",
+          label: "Institution fax number",
+          value: appointment.fax_number %>
+      <% end %>
+
+      <% if appointment.department_head_full_name.present? %>
+        <%= render "pdfs/attribute_details",
+          label: "Department head name",
+          value: appointment.department_head_full_name %>
+      <% end %>
+
+      <%= render "pdfs/attribute_details",
+        label: "Start date",
+        value: format_date_month_day_year(appointment.started_at) %>
+
+      <% if !appointment.current? %>
+        <%= render "pdfs/attribute_details",
+          label: "End date",
+          value: format_date_month_day_year(appointment.ended_at) %>
+      <% end %>
+    <% end %>
+</div>

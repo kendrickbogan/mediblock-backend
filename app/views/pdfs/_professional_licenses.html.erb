@@ -1,0 +1,24 @@
+
+<% if @share_event.categories_included.include?("professional_license") %>
+  <h2 class="pdf__category-title">Professional Licensure</h2>
+  <%= render(
+    "pdfs/professional_licenses/professional_licenses",
+    title: "State Medical Licenses",
+    kind: :medical
+  ) if @person.state_medical_licenses.present? %>
+
+  <%= render(
+    "pdfs/professional_licenses/professional_licenses",
+    title: "Other Licenses",
+    kind: :other
+  ) if  @person.other_professional_licenses.present? %>
+
+  <%= render(
+    "pdfs/professional_licenses/professional_licenses",
+    title: "State X-ray/Fluorscopy Licenses",
+    kind: :xray_fluoroscopy
+  ) if  @person.xray_fluoroscopy_licenses.present? %>
+
+  <%= render "pdfs/professional_licenses/dea_license" if @person.dea_license.present? %>
+<% end %>
+

@@ -1,0 +1,8 @@
+<% if @share_event.categories_included.include?("research_and_public_benefit_data") %>
+   <h2 class="pdf__category-title">Research and Public Benefit Data</h2>
+   <%= render "pdfs/research_and_public_benefit_data/demographic_details" if @person.demographic_detail.present? %>
+   <%= render "pdfs/research_and_public_benefit_data/health_professions_scholarship" if @person.health_professions_scholarship.present? %>
+   <%= render "pdfs/research_and_public_benefit_data/loan_repayment" if @person.loan_repayment_detail.present? %>
+   <%= render "pdfs/research_and_public_benefit_data/national_health_service_corps_scholarship" if @person.national_health_service_corps_scholarship.present? %>
+   <%= render "pdfs/research_and_public_benefit_data/united_states_public_health_service" if @person.united_states_public_health_service.present? %>
+ <% end %>

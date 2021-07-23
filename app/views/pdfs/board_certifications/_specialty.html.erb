@@ -1,0 +1,75 @@
+<h3 class="pdf__section-title"><%= title %></h3>
+
+<%= render "pdfs/attribute_details", label: "Specialty", value: certification.specialty %>
+
+<%= render "pdfs/attribute_details",
+    label: "Are you board certified?",
+    value: yes_or_no_text(certification.board_certified) %>
+
+<% if certification.board_certified? %>
+
+    <% if certification.specialty.present? %>
+        <%= render "pdfs/attribute_details",
+            label: "Certifying board name",
+            value: certification.specialty %>
+    <% end %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Initial certification date",
+        value: format_date_month_day_year(certification.initial_certification_date) %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Expiration date",
+        value: format_date_month_day_year(certification.expires_at) %>
+
+    <% if certification.recertification_date.present? %>
+        <%= render "pdfs/attribute_details",
+            label: "Recertification date",
+            value: format_date_month_day_year(certification.recertification_date) %>
+    <% end %>
+
+<% else %>
+
+    <% if certification.has_taken_certification_exam.present? %>
+        <%= render "pdfs/attribute_details",
+            label: "Have you taken the certification exam?",
+            value: questionnaire.has_taken_certification_exam %>
+    <% end %>
+
+    <% if questionnaire.has_taken_certification_exam? %>
+        <%= render "pdfs/attribute_details",
+            label: "Certifying board name",
+            value: questionnaire.has_taken_certification_exam %>
+    <% end %>
+
+    <% if certification.planning_to_take_exam.present? %>
+        <%= render "pdfs/attribute_details",
+            label: "Are you planning to take the exam?",
+            value: questionnaire.planning_to_take_exam %>
+    <% end %>
+
+    <% if questionnaire.planning_to_take_exam? %>
+        <%= render "pdfs/attribute_details",
+            label: "Expected exam date",
+            value: format_date_month_day_year(questionnaire.expected_exam_date) %>
+    <% end %>
+
+    <% if certification.taken_part_one_part_two_eligible.present? %>
+        <%= render "pdfs/attribute_details",
+            label: "I have taken the Part I exame and am elgible to take Part II of the exam",
+            value: questionnaire.taken_part_one_part_two_eligible %>
+    <% end %>
+
+    <% if questionnaire.taken_part_one_part_two_eligible? %>
+        <%= render "pdfs/attribute_details",
+            label: "Certifying board name",
+            value: questionnaire.taken_part_one_part_two_eligible_board_name %>
+    <% end %>
+
+    <% if certification.comments.present? %>
+        <%= render "pdfs/attribute_details",
+            label: "Comments",
+            value: questionnaire.comments %>
+    <% end %>
+
+<% end %>

@@ -1,0 +1,17 @@
+<h3 class="pdf__section-title">Administrative Leadership Positions</h3>
+<% @person.administrative_leadership_positions.each_with_index do |position, index| %>
+  <h3 class="pdf__section-title"> Position #<%= index + 1 %></h3>
+  <%= render "pdfs/attribute_details",
+    label: "Position title",
+    value: position.title %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Start date",
+    value: format_date_month_day_year(position.started_at) %>
+
+  <% if !position.current? %>
+    <%= render "pdfs/attribute_details",
+      label: "End date",
+      value: format_date_month_day_year(position.ended_at) %>
+  <% end %>
+<% end %>

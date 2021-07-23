@@ -1,0 +1,7 @@
+<% if @share_event.categories_included.include?("professional_liability_insurance_details") %>
+  <h2 class="pdf__category-title">Professional Liability Insurance Details</h2>
+  <%= render "pdfs/professional_liability_insurance_details/professional_liability_insurance_carrier" if @person.professional_liability_insurance_carrier.present? %>
+  <%= render "pdfs/professional_liability_insurance_details/professional_liability_judgments_questionnaire" if @person.professional_liability_judgments_questionnaire.present? %>
+  <%= render "pdfs/professional_liability_insurance_details/insurance_policies" if @person.insurance_policies.present? %>
+  <%= render "pdfs/professional_liability_insurance_details/malpractice_claims" if @person.malpractice_claims.present? %>
+<% end %>

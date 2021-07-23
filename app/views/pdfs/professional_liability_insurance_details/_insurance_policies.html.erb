@@ -1,0 +1,71 @@
+<h3 class="pdf__section-title">Insurance Carrier or Entity Policies</h3>
+
+<% @person.insurance_policies.each do |policy| %>
+    <%= render "pdfs/attribute_details",
+        label: "Carrier or self-insured entity name",
+        value: policy.entity_name %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Is this policy self-insured?",
+        value: yes_or_no_text(policy.self_insured)  %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Is this entity covered by the Federal Tort Claims Act (FTCA)?",
+        value: yes_or_no_text(policy.covered_by_ftca)  %>
+
+    <% if policy.self_insured %>
+        <%= render "pdfs/attribute_details",
+            label: "Policy number",
+            value: yes_or_no_text(policy.policy_number)  %>
+    <% end %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Address",
+        value: policy.address %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Phone number",
+        value: policy.phone_number %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Fax number",
+        value: policy.fax_number %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Website URL",
+        value: policy.url %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Email address",
+        value: policy.email %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Tail coverage?",
+        value: yes_or_no_text(policy.tail_coverage)  %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Claims coverage type",
+        value: policy.claims_coverage_type %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Coverage type",
+        value: policy.coverage_type %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Per claim amount",
+        value: policy.per_claim_amount %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Aggregate amount",
+        value: policy.aggregate_amount %>
+        
+    <%= render "pdfs/attribute_details",
+        label: "Start date",
+        value: format_date_month_day_year(policy.started_at) %>
+
+    <% if policy.ended_at.present? %>
+        <%= render "pdfs/attribute_details",
+            label: "End date",
+            value: format_date_month_day_year(policy.ended_at) %>
+    <% end %>
+<% end %>

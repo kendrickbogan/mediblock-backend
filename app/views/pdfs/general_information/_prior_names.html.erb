@@ -1,0 +1,18 @@
+<div class="pdf__section">
+  <h3 class="pdf__section-title">Prior Names</h3>
+  <% @person.prior_names.each_with_index do |prior_name, index| %>
+    <h4> Prior name #<%= index + 1 %></h4>
+    <%= render "pdfs/attribute_details",
+      label: "Full name",
+      value: prior_name.name %>
+    <%= render "pdfs/attribute_details",
+      label: "Start date",
+      value: format_date_month_day_year(prior_name.started_at) %>
+    <%= render "pdfs/attribute_details",
+      label: "End date",
+      value: format_date_month_day_year(prior_name.ended_at) %>
+    <%= render "pdfs/attribute_details",
+      label: "Comments",
+      value: prior_name.comment %>
+  <% end %>
+</div>

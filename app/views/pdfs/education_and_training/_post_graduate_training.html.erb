@@ -1,0 +1,86 @@
+<div class="pdf__section">
+  <h3 class="pdf__section-title"><%= title %></h3>
+  <%= render "pdfs/attribute_details",
+    label: "Institution name",
+    value: record.institution_name %>
+
+  <%= render "pdfs/attribute_details",
+    label: "#{title} type",
+    value: record.public_send("#{record.kind}_kind") %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Attendance start date",
+    value: format_date_month_day_year(record.attendance_start_date) %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Attendance end date",
+    value: format_date_month_day_year(record.attendance_end_date) %>
+
+  <%= render "pdfs/attribute_details",
+      label: "Did you successfully complete the program?",
+      value: yes_or_no_text(record.successfully_completed_program) %>
+
+  <%= render "pdfs/attribute_details",
+      label: "Is this an ACGME accredited program",
+      value: yes_or_no_text(record.acgme_accredited) %>
+
+  <h4>Program director while attending</h4>
+
+  <%= render "pdfs/attribute_details",
+    label: "First name",
+    value:  record.director_during_first_name %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Last name",
+    value:  record.director_during_last_name %>
+
+  <h4>Current program director</h4>
+
+  <%= render "pdfs/attribute_details",
+    label: "First name",
+    value:  record.current_program_director_first_name %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Last name",
+    value:  record.current_program_director_last_name %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Address",
+    value:  record.program_director_address %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Contact phone number",
+    value:  record.director_contact_number %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Contact email",
+    value:  record.director_contact_email %>
+
+  <h4>Program Admin</h4>
+
+  <%= render "pdfs/attribute_details",
+    label: "Name",
+    value:  record.program_admin_name %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Phone number",
+    value:  record.program_admin_phone %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Email",
+    value:  record.program_admin_email %>
+
+  <h4>GME Office</h4>
+
+  <%= render "pdfs/attribute_details",
+    label: "Phone",
+    value:  record.gme_office_phone %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Email",
+    value:  record.gme_office_email %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Website",
+    value:  record.gme_office_url %>
+</div>

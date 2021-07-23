@@ -1,0 +1,21 @@
+<% if @share_event.categories_included.include?("education_and_training") %>
+  <h2 class="pdf__category-title">Education and Training</h2>
+  <%= render "pdfs/education_and_training/medical_degree" if @person.medical_degree.present? %>
+  <%= render "pdfs/education_and_training/other_degree" if @person.other_degree.present? %>
+  <%= render "pdfs/education_and_training/undergraduate_degree" if @person.undergraduate_degree.present? %>
+  <%= render(
+    "pdfs/education_and_training/post_graduate_training",
+    title: "Residency",
+    record: @person.residency
+  ) if @person.residency.present? %>
+  <%= render(
+    "pdfs/education_and_training/post_graduate_training",
+    title: "Internship",
+    record: @person.internship
+  ) if @person.internship.present? %>
+  <%= render(
+    "pdfs/education_and_training/post_graduate_training",
+    title: "Fellowship",
+    record: @person.fellowship
+  ) if @person.fellowship.present? %>
+<% end %>

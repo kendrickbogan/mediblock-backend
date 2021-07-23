@@ -1,0 +1,6 @@
+<% if @share_event.categories_included.include?("peer_reference") %>
+   <h2 class="pdf__category-title">Peer References</h2>
+   <%= render "pdfs/peer_references/peer_reference", peer_reference: @person.peer_references.find_by(position: 1) %>
+   <%= render "pdfs/peer_references/peer_reference", peer_reference: @person.peer_references.find_by(position: 2) %>
+   <%= render "pdfs/peer_references/peer_reference", peer_reference: @person.peer_references.find_by(position: 3) %>
+ <% end %>

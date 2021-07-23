@@ -1,0 +1,17 @@
+<h3 class="pdf__section-title">Professional Liability Judgments Questionnaire</h3>
+
+<%= render "pdfs/attribute_details",
+    label: "Have any professional liability judgments ever been entered against you?",
+    value: yes_or_no_text(@person.professional_liability_judgments_questionnaire.judgments_entered)  %>
+
+<%= render "pdfs/attribute_details",
+    label: "Have any professional liability claim settlements ever been paid by you and/or paid on your behalf?",
+    value: yes_or_no_text(@person.professional_liability_judgments_questionnaire.liability_claim_settlements_paid)  %>
+
+<%= render "pdfs/attribute_details",
+    label: "Are there any currently pending professional liability suits, actions and/or claims filed against you?",
+    value: yes_or_no_text(@person.professional_liability_judgments_questionnaire.pending_liability_actions)  %>
+
+<%= render "pdfs/attribute_details",
+    label: "Has any person or entity ever been sued for your clinical actions?",
+    value: yes_or_no_text(@person.professional_liability_judgments_questionnaire.any_legal_action_due_to_clinical_actions)  %>

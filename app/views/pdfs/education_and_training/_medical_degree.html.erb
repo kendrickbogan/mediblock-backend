@@ -1,0 +1,43 @@
+<div class="pdf__section">
+  <h3 class="pdf__section-title">Medical Degree</h3>
+  <%= render "pdfs/attribute_details",
+    label: "Institution name",
+    value: @person.medical_degree.institution_name %>
+  <%= render "pdfs/attribute_details",
+    label: "Degree",
+    value: @person.medical_degree.kind.titleize %>
+  <%= render "pdfs/attribute_details",
+    label: "Date of graduation",
+    value: format_date_month_day_year(@person.medical_degree.date_of_graduation) %>
+  <%= render "pdfs/attribute_details",
+    label: "Attendance start date",
+    value: format_date_month_day_year(@person.medical_degree.started_at) %>
+  <%= render "pdfs/attribute_details",
+    label: "Attendance end date",
+    value: format_date_month_day_year(@person.medical_degree.ended_at) %>
+  <%= render "pdfs/attribute_details",
+    label: "Registrar phone number",
+    value: @person.medical_degree.registrar_phone_number %>
+  <%= render "pdfs/attribute_details",
+    label: "Registrar website",
+    value: @person.medical_degree.registrar_url %>
+  <%= render "pdfs/attribute_details",
+    label: "Did you attend a medical school outside the US?",
+    value: yes_or_no_text(@person.medical_degree.foreign_medical_school) %>
+
+  <% if @person.medical_degree.foreign_medical_school %>
+    <%= render "pdfs/attribute_details",
+      label: "Are you certified by the Educational Commission for Foreign Medical Graduates?",
+      value: yes_or_no_text(@person.medical_degree.ecfmg_certified) %>
+
+    <% if @person.medical_degree.ecfmg_certified %>
+      <%= render "pdfs/attribute_details",
+        label: "ECFMG certification date",
+        value: format_date_month_day_year(@person.medical_degree.ecfmg_certified_at) %>
+    <% end %>
+  <% end %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Institution address",
+    value: @person.medical_degree.institution_address %>
+</div>

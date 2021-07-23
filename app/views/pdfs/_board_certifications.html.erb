@@ -1,0 +1,16 @@
+<% if @share_event.categories_included.include?("board_certification") %>
+  <h2 class="pdf__category-title">Board Certifications</h2>
+  <%= render(
+    "pdfs/board_certifications/specialty",
+    certification: @person.primary_certification,
+    questionnaire: @person.primary_certification.board_certification_questionnaire,
+    title: "Primary Specialty"
+  ) if @person.primary_certification.present? %>
+  <%= render(
+    "pdfs/board_certifications/specialty",
+    certification: @person.secondary_certification,
+    questionnaire: @person.secondary_certification.board_certification_questionnaire,
+    title: "Secondary Specialty"
+  ) if @person.secondary_certification.present? %>
+<% end %>
+

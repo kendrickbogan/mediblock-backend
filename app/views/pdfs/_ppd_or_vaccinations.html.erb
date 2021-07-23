@@ -1,0 +1,6 @@
+<% if @share_event.categories_included.include?("ppd_or_vaccination") %>
+   <h2 class="pdf__category-title">PPD/Vaccinations</h2>
+   <%= render "pdfs/ppd_or_vaccinations/covid_vaccination" if @person.covid_vaccination.present? %>
+   <%= render "pdfs/ppd_or_vaccinations/ppd_tuberculosis_testing" if @person.ppd_tuberculosis_testing.present? %>
+   <%= render "pdfs/ppd_or_vaccinations/influenza_vaccination" if @person.influenza_vaccination.present? %>
+ <% end %>

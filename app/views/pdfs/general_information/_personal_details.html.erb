@@ -1,0 +1,14 @@
+<div class="pdf__section">
+    <%= render "pdfs/attribute_details", label: "First name", value: @person.first_name %>
+    <%= render "pdfs/attribute_details", label: "Last name", value: @person.last_name %>
+    <% if @person.middle_name.present? %>
+        <%= render "pdfs/attribute_details", label: "Middle name", value: @person.middle_name %>
+    <% end %>
+    <% if @person.maiden_name.present? %>
+        <%= render "pdfs/attribute_details", label: "Maiden name", value: @person.maiden_name %>
+    <% end %>
+    <% if @person.suffix.present? %>
+        <%= render "pdfs/attribute_details", label: "Suffix", value: @person.suffix %>
+    <% end %>
+    <%= render "pdfs/attribute_details", label: "Legal gender", value: @person.legal_gender.titleize %>
+</div>

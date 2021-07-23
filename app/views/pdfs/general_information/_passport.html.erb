@@ -1,0 +1,14 @@
+<div class="pdf__section">
+    <h3 class="pdf__section-title">Passport</h3>
+    <%= render "pdfs/attribute_details",
+        label: "Expiration date",
+        value: format_date_month_day_year(@person.passport.expires_at) %>
+
+    <%= render "pdfs/attribute_details",
+        label: "License number",
+        value: @person.passport.number %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Country of issue",
+        value: @person.passport.country_of_issue %>
+</div>

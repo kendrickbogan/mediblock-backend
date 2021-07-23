@@ -1,0 +1,47 @@
+<% if peer_reference.present? %>
+  <h3 class="pdf__section-title"> Peer Reference #<%= peer_reference.position %></h3>
+
+  <%= render "pdfs/attribute_details",
+    label: "First name",
+    value: peer_reference.first_name %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Last name",
+    value: peer_reference.last_name %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Title",
+    value: peer_reference.title %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Degree",
+    value: peer_reference.degree %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Specialty",
+    value: peer_reference.specialty %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Relationship",
+    value: peer_reference.relationship %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Phone number",
+    value: peer_reference.phone_number %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Email address",
+    value: peer_reference.email_address %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Address",
+    value: peer_reference.address %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Have you worked with this person in the last two years?",
+    value: yes_or_no_text(peer_reference.has_worked_with_in_the_past_two_years) %>  
+
+  <%= render "pdfs/attribute_details",
+    label: "Years known",
+    value: peer_reference.years_known %>  
+<% end %>

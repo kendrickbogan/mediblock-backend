@@ -1,0 +1,6 @@
+<% if @share_event.categories_included.include?("employment_history") %>
+  <h2 class="pdf__category-title">Work/Employment History</h2>
+  <%= render "pdfs/employment_history/medical_groups" if @person.medical_group_employers.present? %>
+  <%= render "pdfs/employment_history/employment_gap" if @person.employment_gap.present? %>
+<% end %>
+

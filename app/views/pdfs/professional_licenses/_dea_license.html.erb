@@ -1,0 +1,16 @@
+<h3 class="pdf__section-title">DEA License</h3>
+<%= render "pdfs/attribute_details",
+    label: "DEA Registration Number",
+    value: @person.dea_license.registration_number %>
+
+<%= render "pdfs/attribute_details",
+    label: "Expiration date",
+    value: format_date_month_day_year(@person.dea_license.expires_at) %>
+
+<%= render "pdfs/attribute_details",
+    label: "Status",
+    value: @person.dea_license.status %>
+
+<%= render "pdfs/attribute_details",
+    label: "Is this license unrestricted?",
+    value: yes_or_no_text(@person.dea_license.unrestricted?)%>

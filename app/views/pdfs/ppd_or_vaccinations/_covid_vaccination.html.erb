@@ -1,0 +1,16 @@
+<h3 class="pdf__section-title">COVID-19 Vaccine</h3>
+<%= render "pdfs/attribute_details",
+    label: "First vaccination date",
+    value: format_date_month_day_year(@person.covid_vaccination.vaccination_date_1) %>
+
+<%= render "pdfs/attribute_details",
+    label: "Second vaccination date",
+    value: format_date_month_day_year(@person.covid_vaccination.vaccination_date_2) %>
+
+<%= render "pdfs/attribute_details",
+    label: "Facility name",
+    value: @person.covid_vaccination.facility_name %>
+
+<%= render "pdfs/attribute_details",
+    label: "Facility address",
+    value: @person.covid_vaccination.facility_address %>

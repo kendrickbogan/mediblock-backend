@@ -1,0 +1,15 @@
+<div class="pdf__section">
+  <h3 class="pdf__section-title">Languages Spoken</h3>
+  <% @person.spoken_languages.each do |language| %>
+    <h4><%= language.language %></h4>
+    <%= render "pdfs/attribute_details",
+      label: "Speaking proficiency",
+      value: language.speaking_proficiency.titleize %>
+    <%= render "pdfs/attribute_details",
+      label: "Reading proficiency",
+      value: language.reading_proficiency.titleize %>
+    <%= render "pdfs/attribute_details",
+      label: "Writing proficiency",
+      value: language.writing_proficiency.titleize %>
+  <% end %>
+</div>

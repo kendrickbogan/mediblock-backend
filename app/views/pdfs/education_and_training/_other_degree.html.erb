@@ -1,0 +1,28 @@
+<div class="pdf__section">
+  <h3 class="pdf__section-title">Other Degree</h3>
+  <%= render "pdfs/attribute_details",
+    label: "Institution name",
+    value: @person.other_degree.institution_name %>
+  <%= render "pdfs/attribute_details",
+    label: "Degree",
+    value: @person.other_degree.degree.titleize %>
+  <%= render "pdfs/attribute_details",
+    label: "Date of graduation",
+    value: format_date_month_day_year(@person.other_degree.date_of_graduation) %>
+  <%= render "pdfs/attribute_details",
+    label: "Attendance start date",
+    value: format_date_month_day_year(@person.other_degree.started_at) %>
+  <%= render "pdfs/attribute_details",
+    label: "Attendance end date",
+    value: format_date_month_day_year(@person.other_degree.ended_at) %>
+  <%= render "pdfs/attribute_details",
+    label: "Registrar phone number",
+    value: @person.other_degree.registrar_phone_number %>
+  <%= render "pdfs/attribute_details",
+    label: "Registrar website",
+    value: @person.other_degree.registrar_url %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Institution address",
+    value: @person.other_degree.institution_address %>
+</div>

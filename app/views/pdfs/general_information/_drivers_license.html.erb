@@ -1,0 +1,12 @@
+<div class="pdf__section">
+    <h3 class="pdf__section-title">Drivers License</h3>
+    <%= render "pdfs/attribute_details",
+        label: "Expiration date",
+        value: format_date_month_day_year(@person.drivers_license.expires_at) %>
+    <%= render "pdfs/attribute_details",
+        label: "License number",
+        value: @person.drivers_license.number %>
+    <%= render "pdfs/attribute_details",
+        label: "Issuing state",
+        value: @person.drivers_license.issuing_state %>
+</div>

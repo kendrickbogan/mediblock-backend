@@ -1,0 +1,25 @@
+<h3 class="pdf__section-title">Loan Repayment/Forgiveness Information</h3>
+
+<%= render "pdfs/attribute_details",
+    label: "Name of repayment program",
+    value: @person.loan_repayment_detail.repayment_program_name %>
+
+<%= render "pdfs/attribute_details",
+    label: "Name of institution",
+    value: @person.loan_repayment_detail.name_of_institution %>
+
+<%= render "pdfs/attribute_details",
+   label: "How many years have you worked for repayment?",
+   value: @person.loan_repayment_detail.years_worked_for_repayment %>
+
+<% if @person.loan_repayment_detail.started_at.present? %>
+    <%= render "pdfs/attribute_details",
+        label: "Start date",
+        value: format_date_month_day_year(@person.loan_repayment_detail.started_at) %>
+<% end %>
+
+<% if @person.loan_repayment_detail.ended_at.present? %>
+    <%= render "pdfs/attribute_details",
+        label: "End date",
+        value: format_date_month_day_year(@person.loan_repayment_detail.ended_at) %>
+<% end %>

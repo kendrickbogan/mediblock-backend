@@ -1,0 +1,83 @@
+<h3 class="pdf__section-title">PPD Tuberculosis Testing</h3>
+
+<%= render "pdfs/attribute_details",
+    label: "Have you ever received the Bacillus Calmette-Guerin (BCG) vaccine?",
+    value: yes_or_no_text(@person.ppd_tuberculosis_testing.received_bcg_vaccine) %>
+
+<%= render "pdfs/attribute_details",
+    label: "Have you ever had a positive reaction to the TB skin test?",
+    value: yes_or_no_text(@person.ppd_tuberculosis_testing.had_positive_tb_skin_test) %>
+
+<% if @person.ppd_tuberculosis_testing.had_positive_tb_skin_test %>
+    <%= render "pdfs/attribute_details",
+        label: "Size of reaction/induration (in mm)",
+        value: @person.ppd_tuberculosis_testing.test_reaction_size %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Was your positive reaction more than 5 years ago?",
+        value: yes_or_no_text(@person.ppd_tuberculosis_testing.tested_more_than_5_years_ago) %>
+
+    <% if @person.ppd_tuberculosis_testing.tested_more_than_5_years_ago %>
+        <%= render "pdfs/attribute_details",
+            label: "Year tested positive",
+            value: @person.ppd_tuberculosis_testing.year_tested_positive %>
+    <% else %>
+        <%= render "pdfs/attribute_details",
+            label: "Date tested positive",
+            value: format_date_month_day_year(@person.ppd_tuberculosis_testing.tested_positive_at) %>
+    <% end %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Date of last chest X-ray",
+        value: format_date_month_day_year(@person.ppd_tuberculosis_testing.last_chest_xray_at) %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Have you ever had a TB disease diagnosis?",
+        value: yes_or_no_text(@person.ppd_tuberculosis_testing.had_tb_disease_diagnosis) %>
+
+    <% if @person.ppd_tuberculosis_testing.had_tb_disease_diagnosis %>
+        <%= render "pdfs/attribute_details",
+            label: "Have you taken INH or Rifampin for TB treatment?",
+            value: yes_or_no_text(@person.ppd_tuberculosis_testing.has_taken_inh_or_rifampin) %>
+
+        <%= render "pdfs/attribute_details",
+            label: "Was your treatment completed more than 5 years ago?",
+            value: yes_or_no_text(@person.ppd_tuberculosis_testing.treatment_completed_more_than_5_years_ago) %>
+
+        <% if @person.ppd_tuberculosis_testing.treatment_completed_more_than_5_years_ago %>
+            <%= render "pdfs/attribute_details",
+                label: "Year treatment completed",
+                value: @person.ppd_tuberculosis_testing.year_treatment_completed %>
+        <% else %>
+            <%= render "pdfs/attribute_details",
+                label: "Date treatment completed",
+                value: format_date_month_day_year(@person.ppd_tuberculosis_testing.treatment_completed_at) %>
+        <% end %>
+    <% end %>
+<% else %>
+    <%= render "pdfs/attribute_details",
+        label: "Have you received a PPD test in the last year?",
+        value: yes_or_no_text(@person.ppd_tuberculosis_testing.tested_in_the_last_year) %>
+
+    <% if @person.ppd_tuberculosis_testing.tested_in_the_last_year %>
+        <%= render "pdfs/attribute_details",
+            label: "Testing site name",
+            value: @person.ppd_tuberculosis_testing.testing_site_name %>
+
+        <%= render "pdfs/attribute_details",
+            label: "Test date",
+            value: format_date_month_day_year(@person.ppd_tuberculosis_testing.test_date) %>
+
+        <%= render "pdfs/attribute_details",
+            label: "Testing site address",
+            value: @person.ppd_tuberculosis_testing.testing_site_address %>
+
+        <%= render "pdfs/attribute_details",
+            label: "PPD Induration",
+            value: @person.ppd_tuberculosis_testing.ppd_induration %>
+
+        <%= render "pdfs/attribute_details",
+            label: "PPD Interpretation",
+            value: @person.ppd_tuberculosis_testing.ppd_interpretation %>
+    <% end %>
+<% end %>

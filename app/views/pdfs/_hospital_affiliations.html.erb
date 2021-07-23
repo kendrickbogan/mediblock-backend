@@ -1,0 +1,54 @@
+<% if @share_event.categories_included.include?("hospital_affiliation") &&
+    @person.hospital_affiliations.present? %>
+  <h2 class="pdf__category-title">Hospital Affiliations</h2>
+
+  <% @person.hospital_affiliations.each_with_index do |affiliation, index| %>
+    <h3 class="pdf__section-title"> Hospital Affiliation #<%= index + 1 %></h3>
+    <%= render "pdfs/attribute_details",
+      label: "Hospital name",
+      value: affiliation.hospital_name %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Legal business name",
+      value: affiliation.hospital_legal_business_name %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Department name",
+      value: affiliation.department_name %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Membership status",
+      value: affiliation.membership_status.titleize %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Address",
+      value: affiliation.full_address %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Staff office phone number",
+      value: affiliation.staff_office_phone_number %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Staff office fax number",
+      value: affiliation.staff_office_fax_number %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Start date",
+      value: format_date_month_day_year(affiliation.started_at) %>
+
+    <% if !affiliation.current? %>
+      <%= render "pdfs/attribute_details",
+        label: "End date",
+        value: format_date_month_day_year(affiliation.ended_at) %>
+    <% end %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Are there limitations on your privileges at this hospital?",
+      value: yes_or_no_text(affiliation.privilege_limitations) %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Comments",
+      value: affiliation.comments %>
+  <% end %>
+<% end %>
+

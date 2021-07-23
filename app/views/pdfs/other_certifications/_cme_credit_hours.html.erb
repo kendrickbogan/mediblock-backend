@@ -1,0 +1,23 @@
+<h3 class="pdf__section-title">CME Credit Hours</h3>
+<% credit_hours.each do |credit_hour| %>
+  <div>
+    <%= render "pdfs/attribute_details",
+      label: "Course or activity date",
+      value: format_date_month_day_year(credit_hour.activity_date) %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Course or activity name",
+      value: credit_hour.activity_name %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Sponsor name",
+      value: credit_hour.sponsor_name %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Method of education",
+      value: credit_hour.method_of_education %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Number of hours earned",
+      value: credit_hour.hours_earned %>
+<% end %>

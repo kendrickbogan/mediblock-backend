@@ -1,0 +1,20 @@
+<h3 class="pdf__section-title"><%= title %></h3>
+<% certifications.each do |certification| %>
+  <div>
+    <% if certification.other? %>
+      <%= render "pdfs/attribute_details",
+        label: "Certification",
+        value: certification.name %>
+    <% end %>
+
+    <%= render "pdfs/attribute_details",
+      label: "Issued at",
+      value: format_date_month_day_year(certification.issued_at) %>
+
+    <% if certification.expires_at.present? %>
+      <%= render "pdfs/attribute_details",
+        label: "Expiration date",
+        value: format_date_month_day_year(certification.expires_at) %>
+    <% end %>
+  </div>
+<% end %>

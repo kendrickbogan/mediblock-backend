@@ -1,0 +1,29 @@
+<h3 class="pdf__section-title">Medical Groups and Employers</h3>
+<% @person.medical_group_employers.each_with_index do |employer, index| %>
+  <h3 class="pdf__section-title"> Employer #<%= index + 1 %></h3>
+  <%= render "pdfs/attribute_details",
+    label: "Employer name",
+    value: employer.name %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Legal business name",
+    value: employer.legal_business_name %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Address",
+    value: employer.full_address %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Phone number",
+    value: employer.phone_number %>
+
+  <%= render "pdfs/attribute_details",
+    label: "Start date",
+    value: format_date_month_day_year(employer.started_at) %>
+
+  <% if !employer.current? %>
+    <%= render "pdfs/attribute_details",
+      label: "End date",
+      value: format_date_month_day_year(employer.ended_at) %>
+  <% end %>
+<% end %>

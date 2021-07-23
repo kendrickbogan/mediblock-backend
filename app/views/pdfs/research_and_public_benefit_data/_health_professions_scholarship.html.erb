@@ -1,0 +1,13 @@
+<h3 class="pdf__section-title">Health Professions Scholarship</h3>
+
+<%= render "pdfs/attribute_details",
+    label: "Military branch scholarship sponsor",
+    value: @person.health_professions_scholarship.military_branch_scholarship_sponsor %>
+
+<%= render "pdfs/attribute_details",
+    label: "Start date",
+    value: format_date_month_day_year(@person.health_professions_scholarship.started_at) %>
+
+<%= render "pdfs/attribute_details",
+    label: "End date",
+    value: format_date_month_day_year(@person.health_professions_scholarship.ended_at) %>

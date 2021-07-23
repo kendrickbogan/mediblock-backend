@@ -1,0 +1,9 @@
+<h3 class="pdf__section-title">National Health Service Corps Scholarship</h3>
+
+<%= render "pdfs/attribute_details",
+    label: "Start date",
+    value: format_date_month_day_year(@person.national_health_service_corps_scholarship.started_at) %>
+
+<%= render "pdfs/attribute_details",
+    label: "End date",
+    value: format_date_month_day_year(@person.national_health_service_corps_scholarship.ended_at) %>

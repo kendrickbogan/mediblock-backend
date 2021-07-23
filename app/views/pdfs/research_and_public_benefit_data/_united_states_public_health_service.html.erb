@@ -1,0 +1,13 @@
+<h3 class="pdf__section-title">United States Public Health Service</h3>
+
+<% if @person.united_states_public_health_service.started_at.present? %>
+    <%= render "pdfs/attribute_details",
+        label: "Start date",
+        value: format_date_month_day_year(@person.united_states_public_health_service.started_at) %>
+<% end %>
+
+<% if @person.united_states_public_health_service.ended_at.present? %>
+    <%= render "pdfs/attribute_details",
+        label: "End date",
+        value: format_date_month_day_year(@person.united_states_public_health_service.ended_at) %>
+<% end %>

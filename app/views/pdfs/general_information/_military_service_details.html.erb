@@ -1,0 +1,24 @@
+<div class="pdf__section">
+    <h3 class="pdf__section-title">Military Service</h3>
+    <%= render "pdfs/attribute_details",
+        label: "Branch of service",
+        value: @person.military_service_detail.branch_of_service  %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Are you currently serving in an Active Duty Status?",
+        value: yes_or_no_text(@person.military_service_detail.active_duty?) %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Start date",
+        value: format_date_month_day_year(@person.military_service_detail.started_at) %>
+
+    <% unless @person.military_service_detail.active_duty? %>
+    <%= render "pdfs/attribute_details",
+        label: "End date",
+        value: format_date_month_day_year(@person.military_service_detail.ended_at) %>
+    <% end %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Do you have a copy of your DD-214",
+        value: yes_or_no_text(@person.military_service_detail.has_dd214?) %>
+</div>

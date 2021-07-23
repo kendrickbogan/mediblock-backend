@@ -1,0 +1,27 @@
+<h3 class="pdf__section-title">Influenza Vaccination</h3>
+
+<%= render "pdfs/attribute_details",
+    label: "Have you had an influenza vaccination within the last year?",
+    value: yes_or_no_text(@person.influenza_vaccination.has_been_vaccinated) %>
+
+<% if @person.influenza_vaccination.has_been_vaccinated %>
+    <%= render "pdfs/attribute_details",
+        label: "Vaccination date",
+        value: format_date_month_day_year(@person.influenza_vaccination.vaccinated_at) %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Flu season",
+        value: @person.influenza_vaccination.flu_season %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Facility name",
+        value: @person.influenza_vaccination.facility_name %>
+
+    <%= render "pdfs/attribute_details",
+        label: "Facility address",
+        value: @person.influenza_vaccination.facility_address %>
+<% else %>
+    <%= render "pdfs/attribute_details",
+        label: "No vaccination comment",
+        value: @person.influenza_vaccination.no_vaccination_comment %>
+<% end %>
